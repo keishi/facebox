@@ -1,0 +1,8 @@
+embedding_cache.pkl
+quality_estimator_dataset.pkl
+quality_estimator.keras
+small-facial3
+wandb
+.DS_Store
+__pycache__
+*.pyc
