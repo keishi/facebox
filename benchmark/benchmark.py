@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath('./facebox'))
+sys.path.append(os.path.abspath('.'))
 
 from facebox2.models.insightface_model import InsightFaceModel
 from facebox2.utils.image_utils import pil2cv, cv2pil

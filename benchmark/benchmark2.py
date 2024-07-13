@@ -1,7 +1,7 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath('/Users/keishi/facebox'))
+sys.path.append(os.path.abspath('.'))
 
 from facebox2.models.ghostfacenetv1_model import GhostFaceNetV1Model
 import numpy as np
