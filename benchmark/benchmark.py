@@ -49,7 +49,7 @@ face_model = InsightFaceModel()
 face_model.load_model()
 
 def extract_faces(face_model, image_files) -> typing.List[np.ndarray]:
-    for image_file in image_files:
+    for image_file in tqdm(image_files):
         image = Image.open(image_file)
         image = pil2cv(image)
         face_detections = face_model.detect_faces(image)
@@ -61,12 +61,11 @@ def run(face_model, image_files, batch_size):
     start_time = time.time()
     embeddings = []
     if batch_size is None:
-        for image_file in image_files:
+        for image_file in tqdm(image_files):
             image = Image.open(image_file)
             image = pil2cv(image)
-            # face_detections = face_model.detect_faces(image)
-            # faces = face_model.extract_faces(image, face_detections)
-            faces = [image]
+            face_detections = face_model.detect_faces(image)
+            faces = face_model.extract_faces(image, face_detections)
             for face in faces:
                 embeddings.extend(face_model.get_embeddings([face]))
     else:
